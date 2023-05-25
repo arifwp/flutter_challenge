@@ -4,6 +4,7 @@ import 'package:battery_info/battery_info_plugin.dart';
 import 'package:battery_info/model/android_battery_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_challenge/components/alert.dart';
+import 'package:flutter_challenge/components/app_drawer.dart';
 import 'package:flutter_challenge/components/box_device_sensor.dart';
 import 'package:flutter_challenge/components/custom_box.dart';
 import 'package:flutter_challenge/theme.dart';
@@ -178,11 +179,16 @@ class _HomePageState extends State<HomePage> {
         magnetometerValues?.map((double v) => v.toStringAsFixed(1)).toList();
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Home Page'),
+        backgroundColor: Colors.blueGrey,
+      ),
+      drawer: AppDrawer(),
       backgroundColor: Color(0xff042B59),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(
-            top: 80,
+            top: 20,
             left: 20,
             right: 20,
           ),
