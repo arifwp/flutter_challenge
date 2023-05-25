@@ -1,11 +1,15 @@
 import 'dart:async';
 
+import 'package:battery_info/battery_info_plugin.dart';
+import 'package:battery_info/model/android_battery_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_challenge/components/alert.dart';
 import 'package:flutter_challenge/components/box_device_sensor.dart';
 import 'package:flutter_challenge/components/custom_box.dart';
 import 'package:flutter_challenge/theme.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:sensors_plus/sensors_plus.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -27,9 +31,20 @@ class _HomePageState extends State<HomePage> {
   List<double>? magnetometerValues;
   final streamSubscriptions = <StreamSubscription<dynamic>>[];
 
+  bool serviceStatus = false;
+  bool hasPermission = false;
+  late LocationPermission permission;
+  late Position position;
+  String long = '';
+  String lat = '';
+  String errMsg = '';
+  late StreamSubscription<Position> positionStream;
+
   @override
   void initState() {
     super.initState();
+
+    checkGps();
 
     timeString =
         "${DateTime.now().hour} : ${DateTime.now().minute} : ${DateTime.now().second}";
@@ -106,6 +121,50 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void checkGps() async {
+    serviceStatus = await Geolocator.isLocationServiceEnabled();
+    var status = await Permission.location.status;
+    if (await Permission.location.serviceStatus.isDisabled) {
+      alertDialog(context, 'Turn on your GPS');
+    }
+
+    if (status.isGranted) {
+      getLocation();
+    } else if (status.isDenied) {
+      alertDialog(context, 'Location permissions denied');
+      Map<Permission, PermissionStatus> statusLoc = await [
+        Permission.location,
+      ].request();
+      print(statusLoc);
+    }
+
+    if (await Permission.location.isPermanentlyDenied) {
+      openAppSettings();
+    }
+  }
+
+  void getLocation() async {
+    position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+
+    LocationSettings locationSettings = LocationSettings(
+      accuracy: LocationAccuracy.high,
+      distanceFilter: 100,
+    );
+
+    StreamSubscription<Position> positionStream =
+        Geolocator.getPositionStream(locationSettings: locationSettings)
+            .listen((Position position) {
+      long = position.longitude.toString();
+      lat = position.latitude.toString();
+    });
+
+    setState(() {
+      long = position.longitude.toString();
+      lat = position.latitude.toString();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final userAccelerometer = userAccelerometerValues
@@ -118,9 +177,9 @@ class _HomePageState extends State<HomePage> {
     final magnetometer =
         magnetometerValues?.map((double v) => v.toStringAsFixed(1)).toList();
 
-    return Container(
-      decoration: BoxDecoration(color: mainBgColor),
-      child: SingleChildScrollView(
+    return Scaffold(
+      backgroundColor: Color(0xff042B59),
+      body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(
             top: 80,
@@ -147,7 +206,20 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 20,
               ),
-              CustomBox('GPS Coordinate', 'data'),
+              CustomBox('GPS Coordinate', '${long} + ${lat}'),
+              SizedBox(
+                height: 20,
+              ),
+              FutureBuilder<AndroidBatteryInfo?>(
+                future: BatteryInfoPlugin().androidBatteryInfo,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return CustomBox('Battery Level',
+                        snapshot.data!.batteryLevel.toString());
+                  }
+                  return CircularProgressIndicator();
+                },
+              ),
             ],
           ),
         ),
