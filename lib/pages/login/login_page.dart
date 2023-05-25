@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_challenge/components/card_login.dart';
+import 'package:flutter_challenge/pages/login/card_login.dart';
 import 'package:flutter_challenge/theme.dart';
 
 class LoginPage extends StatelessWidget {
