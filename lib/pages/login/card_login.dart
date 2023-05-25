@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_challenge/components/alert.dart';
 import 'package:flutter_challenge/components/style_textfield.dart';
 import 'package:flutter_challenge/db/database_helper.dart';
-import 'package:flutter_challenge/db/local_auth.dart';
+import 'package:flutter_challenge/utils/local_auth.dart';
 import 'package:flutter_challenge/models/user.dart';
-import 'package:flutter_challenge/pages/home_page.dart';
+import 'package:flutter_challenge/pages/home/home_page.dart';
 
 class CardLogin extends StatefulWidget {
   const CardLogin({super.key});
@@ -74,46 +74,51 @@ class _CardLoginState extends State<CardLogin> {
       child: SizedBox(
         width: 340,
         height: 310,
-        child: Padding(
-          padding: EdgeInsets.all(20),
-          child: Column(
-            children: [
-              StyleTextField('Username', conUsername, false),
-              SizedBox(
-                height: 20,
-              ),
-              StyleTextField('Password', conPassword, true),
-              SizedBox(
-                height: 24,
-              ),
-              Row(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: Column(
                 children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: login,
-                      child: Text(
-                        'Login',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  )
+                  StyleTextField('Username', conUsername, false),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  StyleTextField('Password', conPassword, true),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: login,
+                          child: Text(
+                            'Login',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: authenticate,
+                          child: Text(
+                            'Login Using Face Recognition',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ],
               ),
-              Row(
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: authenticate,
-                      child: Text(
-                        'Login Using Face Recognition',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

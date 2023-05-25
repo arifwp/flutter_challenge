@@ -7,33 +7,30 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        decoration: BoxDecoration(color: mainBgColor),
-        child: Column(
-          children: [
-            Padding(padding: EdgeInsets.only(top: 180)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  'assets/images/flutter_logo.png',
-                  width: 200,
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 60,
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CardLogin(),
-              ],
-            )
-          ],
-        ),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/images/flutter_logo.png',
+                width: 200,
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 60,
+          ),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CardLogin(),
+            ],
+          )
+        ],
       ),
     );
   }
