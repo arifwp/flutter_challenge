@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_challenge/pages/data_page.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -17,10 +18,11 @@ class AppDrawer extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.blue,
             ),
-            child: Text('Drawer Header'),
+            child: Text('Flutter Challenge'),
           ),
           ListTile(
-            title: const Text('Item 1'),
+            leading: Icon(Icons.home),
+            title: const Text('Halaman A'),
             onTap: () {
               // Update the state of the app
               // ...
@@ -29,12 +31,15 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Item 2'),
+            leading: Icon(Icons.data_array),
+            title: const Text('Halaman B'),
             onTap: () {
-              // Update the state of the app
-              // ...
-              // Then close the drawer
               Navigator.pop(context);
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => DataPage(),
+                ),
+              );
             },
           ),
         ],

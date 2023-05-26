@@ -1,12 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_challenge/components/app_dropdown.dart';
 
 class CustomBox extends StatefulWidget {
-  const CustomBox(this.title, this.data, {super.key});
+  const CustomBox(this.title, this.data, this.dataDropdown, {super.key});
 
   final String title;
-  final String data;
+  final String? data;
+  final Widget? dataDropdown;
 
   @override
   State<CustomBox> createState() => _CustomBoxState();
@@ -37,6 +39,7 @@ class _CustomBoxState extends State<CustomBox> {
                     children: [
                       Text(
                         '${widget.title}',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -45,7 +48,9 @@ class _CustomBoxState extends State<CustomBox> {
                       SizedBox(
                         height: 10,
                       ),
-                      Text(widget.data),
+                      (widget.data != null)
+                          ? Text(widget.data.toString())
+                          : AppDropdown(),
                       SizedBox(
                         height: 10,
                       ),

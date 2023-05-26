@@ -8,6 +8,7 @@ import 'package:flutter_challenge/components/app_drawer.dart';
 import 'package:flutter_challenge/components/box_device_sensor.dart';
 import 'package:flutter_challenge/components/custom_box.dart';
 import 'package:flutter_challenge/theme.dart';
+import 'package:flutter_challenge/utils/global_data.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -41,6 +42,8 @@ class _HomePageState extends State<HomePage> {
   String errMsg = '';
   late StreamSubscription<Position> positionStream;
 
+  var ref = GlobalData();
+
   @override
   void initState() {
     super.initState();
@@ -54,6 +57,17 @@ class _HomePageState extends State<HomePage> {
       (timer) => getTime(),
     );
 
+    if (ref.refreshEvery == 0) {
+      initDeviceSensor();
+    } else {
+      Timer.periodic(
+        Duration(seconds: ref.refreshEvery),
+        (timer) => initDeviceSensor(),
+      );
+    }
+  }
+
+  void initDeviceSensor() async {
     streamSubscriptions.add(userAccelerometerEvents.listen(
       (event) {
         setState(() {
@@ -116,10 +130,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   void getTime() {
-    setState(() {
-      timeString =
-          "${DateTime.now().hour} : ${DateTime.now().minute} : ${DateTime.now().second}";
-    });
+    if (mounted) {
+      setState(() {
+        timeString =
+            "${DateTime.now().hour} : ${DateTime.now().minute} : ${DateTime.now().second}";
+      });
+    }
   }
 
   void checkGps() async {
@@ -198,21 +214,32 @@ class _HomePageState extends State<HomePage> {
               CustomBox(
                 'Time',
                 timeString.toString(),
+                null,
               ),
               SizedBox(
                 height: 20,
               ),
               BoxDeviceSensor(
                 'Device Sensor',
+                'User Accelerometer',
                 userAccelerometer,
+                'Accelerometer',
                 accelerometer,
+                'Gyroscope',
                 gyroscope,
+                'Magnetometer',
                 magnetometer,
+                null,
+                null,
               ),
               SizedBox(
                 height: 20,
               ),
-              CustomBox('GPS Coordinate', '${long} + ${lat}'),
+              CustomBox(
+                'GPS Coordinate',
+                '${long} + ${lat}',
+                null,
+              ),
               SizedBox(
                 height: 20,
               ),
@@ -220,11 +247,17 @@ class _HomePageState extends State<HomePage> {
                 future: BatteryInfoPlugin().androidBatteryInfo,
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    return CustomBox('Battery Level',
-                        snapshot.data!.batteryLevel.toString());
+                    return CustomBox(
+                      'Battery Level',
+                      snapshot.data!.batteryLevel.toString(),
+                      null,
+                    );
                   }
                   return CircularProgressIndicator();
                 },
+              ),
+              SizedBox(
+                height: 20,
               ),
             ],
           ),
