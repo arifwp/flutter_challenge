@@ -1,0 +1,6 @@
+[
+    {
+        "merged": "com.igrik12.battery_info-merged_res-10:/drawable-v21/notification_action_background.xml",
+        "source": "com.igrik12.battery_info-core-1.6.0-1:/drawable-v21/notification_action_background.xml"
+    }
+]

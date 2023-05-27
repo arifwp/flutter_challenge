@@ -1,0 +1,148 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.flutter_challenge"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+8-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:4:5-66
+11-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:4:22-64
+12    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+12-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:5:5-73
+12-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:5:22-71
+13    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+13-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:6:5-71
+13-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:6:22-69
+14    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+14-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:7:5-79
+14-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:7:22-76
+15    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+15-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:8:5-81
+15-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:8:22-78
+16    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+16-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:9:5-85
+16-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:9:22-82
+17    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+17-->[:geolocator_android] D:\dart_project\flutter_challenge\build\geolocator_android\intermediates\merged_manifest\release\AndroidManifest.xml:9:5-77
+17-->[:geolocator_android] D:\dart_project\flutter_challenge\build\geolocator_android\intermediates\merged_manifest\release\AndroidManifest.xml:9:22-74
+18
+19    <permission
+19-->[androidx.core:core:1.9.0] C:\Users\User\.gradle\caches\transforms-3\5f80b20db3afa86c72a9766b008d752d\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+20        android:name="com.example.flutter_challenge.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+20-->[androidx.core:core:1.9.0] C:\Users\User\.gradle\caches\transforms-3\5f80b20db3afa86c72a9766b008d752d\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+21        android:protectionLevel="signature" />
+21-->[androidx.core:core:1.9.0] C:\Users\User\.gradle\caches\transforms-3\5f80b20db3afa86c72a9766b008d752d\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+22
+23    <uses-permission android:name="com.example.flutter_challenge.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+23-->[androidx.core:core:1.9.0] C:\Users\User\.gradle\caches\transforms-3\5f80b20db3afa86c72a9766b008d752d\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+23-->[androidx.core:core:1.9.0] C:\Users\User\.gradle\caches\transforms-3\5f80b20db3afa86c72a9766b008d752d\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+24
+25    <application
+26        android:name="android.app.Application"
+26-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:13:9-42
+27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+27-->[androidx.core:core:1.9.0] C:\Users\User\.gradle\caches\transforms-3\5f80b20db3afa86c72a9766b008d752d\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+28        android:icon="@mipmap/ic_launcher"
+28-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:14:9-43
+29        android:label="flutter_challenge" >
+29-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:12:9-42
+30        <activity
+30-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:15:9-35:20
+31            android:name="io.flutter.embedding.android.FlutterFragmentActivity"
+31-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:16:13-80
+32            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+32-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:20:13-163
+33            android:exported="true"
+33-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:17:13-36
+34            android:hardwareAccelerated="true"
+34-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:21:13-47
+35            android:launchMode="singleTop"
+35-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:18:13-43
+36            android:theme="@style/Theme.AppCompat.DayNight"
+36-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:19:13-60
+37            android:windowSoftInputMode="adjustResize" >
+37-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:22:13-55
+38
+39            <!--
+40                 Specifies an Android theme to apply to this Activity as soon as
+41                 the Android process has started. This theme is visible to the user
+42                 while the Flutter UI initializes. After that, this theme continues
+43                 to determine the Window background behind the Flutter UI.
+44            -->
+45            <meta-data
+45-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:27:13-30:17
+46                android:name="io.flutter.embedding.android.NormalTheme"
+46-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:28:15-70
+47                android:resource="@style/NormalTheme" />
+47-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:29:15-52
+48
+49            <intent-filter>
+49-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:31:13-34:29
+50                <action android:name="android.intent.action.MAIN" />
+50-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:32:17-68
+50-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:32:25-66
+51
+52                <category android:name="android.intent.category.LAUNCHER" />
+52-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:33:17-76
+52-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:33:27-74
+53            </intent-filter>
+54        </activity>
+55        <!--
+56             Don't delete the meta-data below.
+57             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+58        -->
+59        <meta-data
+59-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:38:9-40:33
+60            android:name="flutterEmbedding"
+60-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:39:13-44
+61            android:value="2" />
+61-->D:\dart_project\flutter_challenge\android\app\src\main\AndroidManifest.xml:40:13-30
+62
+63        <service
+63-->[:geolocator_android] D:\dart_project\flutter_challenge\build\geolocator_android\intermediates\merged_manifest\release\AndroidManifest.xml:12:9-16:56
+64            android:name="com.baseflow.geolocator.GeolocatorLocationService"
+64-->[:geolocator_android] D:\dart_project\flutter_challenge\build\geolocator_android\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-77
+65            android:enabled="true"
+65-->[:geolocator_android] D:\dart_project\flutter_challenge\build\geolocator_android\intermediates\merged_manifest\release\AndroidManifest.xml:14:13-35
+66            android:exported="false"
+66-->[:geolocator_android] D:\dart_project\flutter_challenge\build\geolocator_android\intermediates\merged_manifest\release\AndroidManifest.xml:15:13-37
+67            android:foregroundServiceType="location" />
+67-->[:geolocator_android] D:\dart_project\flutter_challenge\build\geolocator_android\intermediates\merged_manifest\release\AndroidManifest.xml:16:13-53
+68
+69        <activity
+69-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\User\.gradle\caches\transforms-3\24bd5ae211488322aa8c48f41a7bee4d\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+70            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+70-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\User\.gradle\caches\transforms-3\24bd5ae211488322aa8c48f41a7bee4d\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+71            android:exported="false"
+71-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\User\.gradle\caches\transforms-3\24bd5ae211488322aa8c48f41a7bee4d\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+72            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+72-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\User\.gradle\caches\transforms-3\24bd5ae211488322aa8c48f41a7bee4d\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+73
+74        <meta-data
+74-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\User\.gradle\caches\transforms-3\f46b9773282b7a3d38863a46e0e0b5d1\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+75            android:name="com.google.android.gms.version"
+75-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\User\.gradle\caches\transforms-3\f46b9773282b7a3d38863a46e0e0b5d1\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+76            android:value="@integer/google_play_services_version" />
+76-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\User\.gradle\caches\transforms-3\f46b9773282b7a3d38863a46e0e0b5d1\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+77
+78        <uses-library
+78-->[androidx.window:window:1.0.0-beta04] C:\Users\User\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+79            android:name="androidx.window.extensions"
+79-->[androidx.window:window:1.0.0-beta04] C:\Users\User\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+80            android:required="false" />
+80-->[androidx.window:window:1.0.0-beta04] C:\Users\User\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+81        <uses-library
+81-->[androidx.window:window:1.0.0-beta04] C:\Users\User\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+82            android:name="androidx.window.sidecar"
+82-->[androidx.window:window:1.0.0-beta04] C:\Users\User\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+83            android:required="false" />
+83-->[androidx.window:window:1.0.0-beta04] C:\Users\User\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+84    </application>
+85
+86</manifest>
