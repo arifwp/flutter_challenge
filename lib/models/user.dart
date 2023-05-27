@@ -1,5 +1,5 @@
 class User {
-  String? user_id;
+  int? user_id;
   String? user_name;
   String? email;
   String? password;

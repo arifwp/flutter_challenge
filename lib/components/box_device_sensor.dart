@@ -109,7 +109,9 @@ class _BoxDeviceSensorState extends State<BoxDeviceSensor> {
           radius: 30 + 2,
           backgroundColor: Colors.black,
           child: CircleAvatar(
-            backgroundImage: AssetImage('assets/images/flutter_logo.png'),
+            backgroundImage: AssetImage(
+              'assets/images/flutter_small_logo.png',
+            ),
             radius: 30,
           ),
         )

@@ -16,7 +16,7 @@ class CardLogin extends StatefulWidget {
 class _CardLoginState extends State<CardLogin> {
   final conUsername = TextEditingController();
   final conPassword = TextEditingController();
-  User initData = User('', "demo", "demo@gmail.com", "demo123");
+  User initData = User(1, "demo", "demo@gmail.com", "demo123");
 
   @override
   void initState() {

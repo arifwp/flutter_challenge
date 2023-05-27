@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_challenge/components/app_crud.dart';
 import 'package:flutter_challenge/components/app_drawer.dart';
 import 'package:flutter_challenge/components/app_dropdown.dart';
 import 'package:flutter_challenge/components/box_device_sensor.dart';
@@ -88,7 +89,11 @@ class _DataPageState extends State<DataPage> {
                   'Change Device Sensor Refresh Rate',
                   null,
                   null,
-                )
+                ),
+                AppCrud(),
+                SizedBox(
+                  height: 30,
+                ),
               ],
             ),
           ),
